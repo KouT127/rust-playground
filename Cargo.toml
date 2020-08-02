@@ -1,0 +1,33 @@
+[package]
+name = "rust-playground"
+version = "0.1.0"
+authors = ["Koichi Tada <kou26haru@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+tokio = { version = "0.2", features = ["fs", "stream", "sync", "time", "macros"] }
+futures = { version = "0.3", default-features = false, features = ["alloc"] }
+serde = { version = "1.0.114", features = ["derive"]}
+csv = "1.1"
+regex = "1"
+google-firestore1 = "*"
+hyper = "^0.10"
+hyper-rustls = "^0.6"
+serde_json = "^1.0"
+yup-oauth2 = "^1.0"
+anyhow = "1.0"
+reqwest = { version = "0.10.7",  features = ["json"]}
+chrono = { version = "0.4", features = ["serde"] }
+grpcio = { version = "0.6", features = ["protobuf-codec"] }
+
+[[bin]]
+name = "multi_thread"
+path = "src/multi_thread/main.rs"
+
+[[bin]]
+name = "csv_parser"
+path = "src/csv_parser/main.rs"
+
+[[bin]]
+name = "firestore"
+path = "src/firestore/main.rs"
