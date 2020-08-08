@@ -4,21 +4,28 @@ version = "0.1.0"
 authors = ["Koichi Tada <kou26haru@gmail.com>"]
 edition = "2018"
 
+[workspace]
+
+members = [
+    "src/google_apis",
+]
+
 [dependencies]
 tokio = { version = "0.2", features = ["fs", "stream", "sync", "time", "macros"] }
 futures = { version = "0.3", default-features = false, features = ["alloc"] }
 serde = { version = "1.0.114", features = ["derive"]}
 csv = "1.1"
 regex = "1"
-google-firestore1 = "*"
 hyper = "^0.10"
-hyper-rustls = "^0.6"
+
+hyper-native-tls = "0.3"
 serde_json = "^1.0"
 yup-oauth2 = "^1.0"
 anyhow = "1.0"
 reqwest = { version = "0.10.7",  features = ["json"]}
 chrono = { version = "0.4", features = ["serde"] }
-grpcio = { version = "0.6", features = ["protobuf-codec"] }
+google_apis = { path = "src/google_apis" }
+tonic = { version="0.3.0", features = ["tls"]}
 
 [[bin]]
 name = "multi_thread"

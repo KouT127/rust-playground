@@ -1,2 +1,4 @@
 /target
+/src/google_apis/src/*
 *.json
+*.pem
